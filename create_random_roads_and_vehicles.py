@@ -14,14 +14,14 @@ OBSTRUCTION_START = (5, 2)
 OBSTRUCTION_END = (6, 2)
 RANDOM_MOVEMENT = False # if False, roads act as one-way roads
 
-open('intersections.generated.csv', 'w').close()
-open('roads.generated.csv', 'w').close()
-open('vehicles.50.generated.csv', 'w').close()
+open('datasets/intersections/intersections.generated.csv', 'w').close()
+open('datasets/roads/roads.generated.csv', 'w').close()
+open('datasets/vehicles/vehicles.50.generated.csv', 'w').close()
 
 #
 # Create intersections file
 #
-f = open('intersections.generated.csv', 'a')
+f = open('datasets/intersections/intersections.generated.csv', 'a')
 for intersections_x in range(0, NUM_INTERSECTIONS_X):
     for intersections_y in range(0, NUM_INTERSECTIONS_Y):
         f.write("i{}{},{},{}\n".format(intersections_x, intersections_y, intersections_y * 100, intersections_x * 100))
@@ -42,7 +42,7 @@ def write_both_ways(x_0, y_0, x_1, y_1):
 #
 # Create roads file
 #
-f = open('roads.generated.csv', 'a')
+f = open('datasets/roads/roads.generated.csv', 'a')
 for intersections_x in range(0, NUM_INTERSECTIONS_X):
     for intersections_y in range(0, NUM_INTERSECTIONS_Y):
         # BELOW
@@ -75,7 +75,7 @@ def random_binary():
     return math.floor((random.random() * 2))
 
 
-f = open('vehicles.50.generated.csv', 'a')
+f = open('datasets/vehicles/vehicles.50.generated.csv', 'a')
 for v_i in range(1, NUM_VEHICLES + 1):
     intersections = [
         (math.floor(random.random() * NUM_INTERSECTIONS_X), math.floor(random.random() * NUM_INTERSECTIONS_Y))]
